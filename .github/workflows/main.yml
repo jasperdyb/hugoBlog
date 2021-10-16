@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Setup PostCSS
+        run: npm install -g postcss-cli && npm install -g autoprefixer
+        
       - name: Setup Theme Dependency
         run: npm install --prefix themes/Blonde --production=false 
 
