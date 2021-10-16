@@ -33,7 +33,7 @@ jobs:
         run: npm install --prefix themes/Blonde --production=false 
 
 
-      # 用 Hugo 編譯靜態檔案，使用 staging config
+      # 用 Hugo 編譯靜態檔案，使用 production config
       - name: Build
         run: hugo --minify --environment production
 
