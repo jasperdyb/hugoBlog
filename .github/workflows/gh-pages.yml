@@ -17,11 +17,12 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest' # hugo 版本
+          hugo-version: '0.88.1' # hugo 版本，也可以用 latest
           # extended: true
 
+      # Blonde 樣板有使用 postcss ，所以要先建立 npm 環境並加入相關套件
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2 
         with:
           node-version: '14'
 
@@ -31,8 +32,10 @@ jobs:
       - name: Setup Theme Dependency
         run: npm install --prefix themes/Blonde --production=false 
 
+
+      # 用 Hugo 編譯靜態檔案，使用 staging config
       - name: Build
-        run: hugo --minify --environment staging
+        run: hugo --minify --environment production
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
