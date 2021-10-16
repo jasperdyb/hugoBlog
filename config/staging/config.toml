@@ -22,7 +22,7 @@ title = "Jasper Chen"
 base_color = "bg-gray-800"
 
 #Site description
-description = "Blonde theme for Hugo."
+description = "Jasper Chen's Blog"
 
 # The number of articles to be displayed on a single page.
 paginator_pages = "5"
