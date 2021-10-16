@@ -3,7 +3,7 @@ name: Publish Blog
 on:
   push:
     branches:
-      - main  # 當main分支有push操作時
+      - master  # 當main分支有push操作時
 
 jobs:
   deploy:
