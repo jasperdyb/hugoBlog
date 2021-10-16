@@ -26,7 +26,7 @@ jobs:
           node-version: '14'
 
       - name: Setup Theme Dependency
-        run: npm install --prefix themes/Blonde --production=false -g 
+        run: npm install --prefix themes/Blonde --production=false 
 
       - name: Build
         run: hugo --minify --environment staging
