@@ -17,7 +17,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.88.0' # hugo 版本
+          hugo-version: '0.88.1' # hugo 版本
           # extended: true  # 如果是使用extended版本的務必取消註解。
 
       - name: Setup Node
@@ -26,8 +26,8 @@ jobs:
           node-version: '14'
 
       - name: Setup PostCSS
-        run: npm install -g postcss-cli && npm install -g autoprefixer
-        
+        run: npm install -g postcss-cli && npm install -g autoprefixer && npm install -g postcss
+
       - name: Setup Theme Dependency
         run: npm install --prefix themes/Blonde --production=false 
 
