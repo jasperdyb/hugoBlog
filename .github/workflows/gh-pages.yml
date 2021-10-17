@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-18.04 
     steps:
       - uses: actions/checkout@v2
         with:
@@ -32,15 +32,11 @@ jobs:
       - name: Setup Theme Dependency
         run: npm install --prefix themes/Blonde --production=false 
 
-      - name: Setup baseURL
-        run: env HUGO_baseURL="https://jasperdyb.github.io/hugoBlog/"
-
-      - name: Setup disqusShortname
-        run: env HUGO_disqusShortname=${{ secrets.DISQUS_SHORT_NAME }}
-
-
       # 用 Hugo 編譯靜態檔案，使用 production config
       - name: Build
+        with:          
+          HUGO_baseURL: https://jasperdyb.github.io/hugoBlog/
+          HUGO_disqusShortname: ${{ secrets.DISQUS_SHORT_NAME }}
         run: hugo --minify  
 
       - name: Deploy
