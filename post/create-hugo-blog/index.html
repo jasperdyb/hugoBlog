@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href=/hugoBlog/favicon/favicon.ico>
 <meta name=theme-color content="#ffffff">
 <meta property="og:title" content="Jasper Chen | Create hugo blog">
-<link rel=stylesheet href="https://jasperdyb.github.io/hugoBlog/css/styles.min.e6941013bb4a7dcc642f9c7a26dfd8a256fe4c264f6571238c9c621d2f5497e5.css">
+<link rel=stylesheet href="https://jasperdyb.github.io/hugoBlog/css/styles.min.604fa7203d1010bb80136fb4ae9a10a401a07cfb1c38252da7869f7af9cdee2c.css">
 <link href=/hugoBlog/css/blonde.min.css rel=stylesheet type=text/css media=print onload="this.media='all'">
 <meta name=description content="建立 Hugo 專案 環境 使用 Win10 的 Windows Subsystem Linux 2 (WSL2) 中的 Ubuntu-20.04 環境。
 在 WSL 安裝 在 Ubuntu 可以選擇用 apt 安裝，可是官方目前(2021/10/10) 表示 apt 上的套件還有些問題，會落後幾個版次。
@@ -28,12 +28,12 @@ brew install hugo 建立專案 hugo new site quickstart cd quickstart git init �
 git submodule add https://github.com/opera7133/Blonde.git themes/Blonde git submodule update --remote --merge npm install --prefix themes/Blonde 再來直接從模板的範例中複製 config.toml 到根目錄。
 cp themes/Blonde/exampleSite/config.toml config.toml 啟動伺服器 啟動開發用的伺服器。
 hugo server 可以在 http://localhost:1313/ 打開">
-<meta property="og:url" content="https://jasperdyb.github.io/hugoBlog/posts/create-hugo-blog/">
+<meta property="og:url" content="https://jasperdyb.github.io/hugoBlog/post/create-hugo-blog/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:site content>
-<link rel=canonical href=https://jasperdyb.github.io/hugoBlog/posts/create-hugo-blog/>
+<link rel=canonical href=https://jasperdyb.github.io/hugoBlog/post/create-hugo-blog/>
 <meta name=twitter:description content="建立 Hugo 專案 環境 使用 Win10 的 Windows Subsystem Linux 2 (WSL2) 中的 Ubuntu-20.04 環境。
 在 WSL 安裝 在 Ubuntu 可以選擇用 apt 安裝，可是官方目前(2021/10/10) 表示 apt 上的套件還有些問題，會落後幾個版次。
 所以改用 Brew 進行安裝
@@ -82,9 +82,19 @@ hugo server 可以在 http://localhost:1313/ 打開">
 <div class="container max-w-screen-xl mx-auto mt-4 flex-grow px-5 lg:px-0" id=content>
 <div class=lg:mx-5>
 <div class="grid grid-cols-3 gap-4">
-<div class="bg-white col-span-3 lg:col-span-2 p-5 dark:bg-warmgray-900 dark:text-white">
+<div class="col-span-3 lg:col-span-2 dark:text-white">
+<div class="bg-white dark:bg-warmgray-900 p-5 my-4">
 <h1 class="title text-4xl">Create hugo blog</h1>
-<div class="content py-1"><h2 id=建立-hugo-專案>建立 Hugo 專案</h2>
+<hr class=my-2>
+<aside id=meta>
+<div>
+<section>
+<h4 id=date><span class="icon-access_time mr-2"></span>2021/10/16 </h4>
+</section>
+</div>
+</aside>
+<hr class=my-2>
+<div class="content mt-5"><h2 id=建立-hugo-專案>建立 Hugo 專案</h2>
 <h3 id=環境>環境</h3>
 <p>使用 Win10 的 <code>Windows Subsystem Linux 2 (WSL2)</code> 中的 <code>Ubuntu-20.04</code> 環境。</p>
 <h3 id=在-wsl-安裝>在 WSL 安裝</h3>
@@ -214,6 +224,28 @@ git push --set-upstream origin gh-pages
 <p><img src=https://i.imgur.com/h3SRqJq.png alt></p>
 <p>如果在 push 時用的是 Personal Access Token 做認證，要確保該 Token 有 <code>workflow</code> 的權限才能夠 push 。</p>
 </div>
+<aside id=meta>
+</aside>
+</div>
+<div class="bg-white dark:bg-warmgray-900 p-5 my-4">
+<div class="grid grid-cols-2">
+<div class=col-span-1>
+<a class="previous lg:text-2xl" href=https://jasperdyb.github.io/hugoBlog/post/my-first-post/>
+<div class="transition-colors duration-300 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+<span class=icon-keyboard_arrow_left></span> My First Post
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-warmgray-900 p-5 my-4">
+<div class=mb-3>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//jasper-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+</div>
 </div>
 <div class="hidden lg:block lg:col-span-1">
 <div class=mb-3>
@@ -231,7 +263,7 @@ git push --set-upstream origin gh-pages
 <div class="bg-white panel mb-3 pb-5 dark:bg-warmgray-900">
 <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300">Recent Posts</p>
 <div class=mx-6>
-<a href=/hugoBlog/posts/my-first-post/>
+<a href=/hugoBlog/post/my-first-post/>
 <div class="w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-200 dark:hover:bg-warmgray-800">
 <div class=px-2>
 <div class="text-gray-900 font-bold text-xl dark:text-white">My First Post</div>
@@ -240,7 +272,7 @@ git push --set-upstream origin gh-pages
 </p>
 </div>
 </div>
-<a href=/hugoBlog/posts/create-hugo-blog/>
+<a href=/hugoBlog/post/create-hugo-blog/>
 <div class="w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-200 dark:hover:bg-warmgray-800">
 <div class=px-2>
 <div class="text-gray-900 font-bold text-xl dark:text-white">Create hugo blog</div>
