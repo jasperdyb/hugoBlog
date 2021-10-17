@@ -14,7 +14,7 @@ title = "Jasper Chen"
 #googleAnalytics = "G-1234567890"
 
 # Disqus Comment System
-#disqusShortname = ""
+disqusShortname = ""
 
 [params]
 # Base color of the website.
@@ -66,8 +66,6 @@ widgets = ["search", "archive", "category", "tags", "recent"]
 #[params.analytics.yandexmetrica]
 #    enabled = true
 #    tagNumber = ''
-
-
 
 [taxonomies]
 archive = "archives"

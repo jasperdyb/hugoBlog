@@ -34,6 +34,7 @@ jobs:
 
       - name: Setup Env
         run: env HUGO_baseURL="https://jasperdyb.github.io/hugoBlog/"
+        run: env HUGO_disqusShortname=${{ secrets.DISQUS_SHORT_NAME }}
 
 
       # 用 Hugo 編譯靜態檔案，使用 production config
