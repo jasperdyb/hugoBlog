@@ -32,8 +32,10 @@ jobs:
       - name: Setup Theme Dependency
         run: npm install --prefix themes/Blonde --production=false 
 
-      - name: Setup Env
+      - name: Setup baseURL
         run: env HUGO_baseURL="https://jasperdyb.github.io/hugoBlog/"
+
+      - name: Setup disqusShortname
         run: env HUGO_disqusShortname=${{ secrets.DISQUS_SHORT_NAME }}
 
 
