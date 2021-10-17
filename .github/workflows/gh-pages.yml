@@ -28,17 +28,14 @@ jobs:
 
       - name: Setup PostCSS
         run: npm install -g postcss-cli autoprefixer postcss
-
-      - name: Update Site url
-        run: env HUGO_baseURL="https://jasperdyb.github.io/hugoBlog/" hugo 
-
+ 
       - name: Setup Theme Dependency
         run: npm install --prefix themes/Blonde --production=false 
 
 
       # 用 Hugo 編譯靜態檔案，使用 production config
       - name: Build
-        run: hugo --minify  
+        run: env HUGO_baseURL="https://jasperdyb.github.io/hugoBlog/" hugo --minify  
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
