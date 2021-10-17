@@ -34,10 +34,10 @@ jobs:
 
       # 用 Hugo 編譯靜態檔案，使用 production config
       - name: Build
-        with:          
+        run: hugo --minify  
+        env:          
           HUGO_baseURL: https://jasperdyb.github.io/hugoBlog/
           HUGO_disqusShortname: ${{ secrets.DISQUS_SHORT_NAME }}
-        run: hugo --minify  
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
