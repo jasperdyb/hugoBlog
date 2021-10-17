@@ -36,7 +36,6 @@ jobs:
       - name: Build
         run: hugo --minify  
         env:          
-          HUGO_baseURL: https://jasperdyb.github.io/hugoBlog/
           HUGO_disqusShortname: ${{ secrets.DISQUS_SHORT_NAME }}
 
       - name: Deploy
