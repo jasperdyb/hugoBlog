@@ -32,10 +32,13 @@ jobs:
       - name: Setup Theme Dependency
         run: npm install --prefix themes/Blonde --production=false 
 
+      - name: Setup Env
+        run: env HUGO_baseURL="https://jasperdyb.github.io/hugoBlog/"
+
 
       # 用 Hugo 編譯靜態檔案，使用 production config
       - name: Build
-        run: env HUGO_baseURL="https://jasperdyb.github.io/hugoBlog/" hugo --minify  
+        run: hugo --minify  
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
