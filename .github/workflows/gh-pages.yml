@@ -30,11 +30,11 @@ jobs:
         run: npm install -g postcss-cli autoprefixer postcss
  
       - name: Setup Theme Dependency
-        run: npm install --prefix themes/Blonde --production=false 
+        run: npm install --prefix themes/Blonde 
 
       # 用 Hugo 編譯靜態檔案，使用 production config
       - name: Build
-        run: hugo --minify  
+        run: hugo --minify --environment production
         env:          
           HUGO_disqusShortname: ${{ secrets.DISQUS_SHORT_NAME }}
 

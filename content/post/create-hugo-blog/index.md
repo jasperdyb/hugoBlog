@@ -15,13 +15,13 @@ categories : [
 series : ["Hugo Guide"]
 ---
 
-## 建立 Hugo 專案
+# 建立 Hugo 專案
 
-### 環境
+## 環境
 
 使用 Win10 的 `Windows Subsystem Linux 2 (WSL2)` 中的 `Ubuntu-20.04` 環境。
 
-### 在 WSL 安裝
+## 在 WSL 安裝
 
 在 Ubuntu 可以選擇用 apt 安裝，可是官方目前(2021/10/10) 表示 apt 上的套件還有些問題，[會落後幾個版次](https://gohugo.io/getting-started/installing#debian-and-ubuntu)。
 
@@ -31,7 +31,7 @@ series : ["Hugo Guide"]
 brew install hugo
 ```
 
-### 建立專案
+## 建立專案
 
 ```bash
 hugo new site quickstart
@@ -42,7 +42,7 @@ git init
 ```
 
 
-### 應用模板
+## 應用模板
 
 這邊使用 [Blonde](https://github.com/opera7133/Blonde) 模板，這個模板有用到一些 npm 套件所以要記得安裝。
  
@@ -60,7 +60,7 @@ npm install --prefix themes/Blonde
 cp themes/Blonde/exampleSite/config.toml config.toml
 ```
 
-### 啟動伺服器
+## 啟動伺服器
 
 啟動開發用的伺服器。
 
@@ -71,7 +71,7 @@ hugo server
 可以在 http://localhost:1313/ 打開
 
 
-### 新增文章
+## 新增文章
 
 ```bash
 hugo new posts/my-first-post.md
@@ -90,7 +90,7 @@ draft: true  #要改為 false 後再編譯才會出現
 ```
 
 
-### 編譯靜態網頁
+## 編譯靜態網頁
 
 編譯的指令很簡單。
 
@@ -100,7 +100,7 @@ hugo
 
 編譯好的資料放在 `/public` 底下，原本沒有 `/public` 的話會自動產生。
 
-## 發布到 Github Page
+# 發布到 Github Page
 
 首先在 Github 建立好 Repo。
 
@@ -116,7 +116,7 @@ git push --set-upstream origin master
 ```
 
 
-### 建立發布用分支
+## 建立發布用分支
 
 然後，官方的指南是直接用主分支編譯並發行，不過我參考[這篇文章](https://yurepo.tw/2021/03/%E5%A6%82%E4%BD%95%E5%B0%87hugo%E9%83%A8%E8%90%BD%E6%A0%BC%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A/)的做法，建立一個孤兒的分支來紀錄編譯後的資料，這樣主分支開發的時候比較不會有一堆 `public` 目錄的改動紀錄。
 
@@ -133,7 +133,7 @@ git push --set-upstream origin gh-pages
  
 ![](2021-10-18-19-26-01.png)
 
-### 建立 CI Token
+## 建立 CI Token
 
 先參考[官方說明](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)建立 Personal Access Token ，到 `Settings / Developer settings / Personal access tokens` 新增用於 Hugo 建置流程的 Token。
 
@@ -148,7 +148,7 @@ git push --set-upstream origin gh-pages
 ![](https://i.imgur.com/FqNGrgL.png)
 
 
-### 設定 staging config
+## 設定 staging config
 
 目前只有一個 `conig.toml` 檔案在根目錄，如果要建立不同環境下的設定，要改用 config 目錄區分。
 
@@ -170,7 +170,7 @@ baseURL = <Your_hugo_blog_url>
 編譯時會先讀取 `_default\config.toml` 再 shallow merge 指定的環境 config 檔案，所以 `production\config.toml` 只要寫要改變的參數就好。
 
 
-### 建立 CI 腳本
+## 建立 CI 腳本
 
 在本地的目錄新增 `.github/workflows/gh-pages.yml` 文件，內容如下。
 
@@ -204,10 +204,10 @@ jobs:
           node-version: '14'
 
       - name: Setup PostCSS
-        run: npm install -g postcss-cli && npm install -g autoprefixer && npm install -g postcss
+        run: npm install -g postcss-cli autoprefixer postcss
 
       - name: Setup Theme Dependency
-        run: npm install --prefix themes/Blonde --production=false 
+        run: npm install --prefix themes/Blonde 
 
 
         # 用 Hugo 編譯靜態檔案，使用 production config

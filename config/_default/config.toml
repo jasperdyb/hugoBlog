@@ -14,7 +14,7 @@ title = "Jasper Chen"
 #googleAnalytics = "G-1234567890"
 
 # Disqus Comment System
-disqusShortname = "jasper-blog"
+disqusShortname = ""
 
 [params]
 # Base color of the website.
