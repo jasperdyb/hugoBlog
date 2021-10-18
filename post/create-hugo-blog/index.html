@@ -1,6 +1,6 @@
 <!doctype html><html lang=en>
 <head>
-<title>Jasper Chen | Create hugo blog</title>
+<title>Jasper Chen | 建立 Hugo 部落格並配置到 Github Page</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1">
 <link rel=apple-touch-icon sizes=180x180 href=/hugoBlog/favicon/apple-touch-icon.png>
@@ -10,8 +10,8 @@
 <link rel=mask-icon href=/hugoBlog/favicon/safari-pinned-tab.svg color=#5bbad5>
 <link rel="shortcut icon" href=/hugoBlog/favicon/favicon.ico>
 <meta name=theme-color content="#ffffff">
-<meta property="og:title" content="Jasper Chen | Create hugo blog">
-<link rel=stylesheet href="https://jasperdyb.github.io/hugoBlog/css/styles.min.604fa7203d1010bb80136fb4ae9a10a401a07cfb1c38252da7869f7af9cdee2c.css">
+<meta property="og:title" content="Jasper Chen | 建立 Hugo 部落格並配置到 Github Page">
+<link rel=stylesheet href="https://jasperdyb.github.io/hugoBlog/css/styles.min.ab597d98e4a4112b7c80c65934598d57c8dd6af80f3d3840db530a6eaedaea2f.css">
 <link href=/hugoBlog/css/blonde.min.css rel=stylesheet type=text/css media=print onload="this.media='all'">
 <meta name=description content="建立 Hugo 專案 環境 使用 Win10 的 Windows Subsystem Linux 2 (WSL2) 中的 Ubuntu-20.04 環境。
 在 WSL 安裝 在 Ubuntu 可以選擇用 apt 安裝，可是官方目前(2021/10/10) 表示 apt 上的套件還有些問題，會落後幾個版次。
@@ -43,8 +43,8 @@ cp themes/Blonde/exampleSite/config.toml config.toml 啟動伺服器 啟動開�
 hugo server 可以在 http://localhost:1313/ 打開">
 <meta property="article:published_time" content="2021-10-16T23:32:24+08:00">
 <meta property="article:updated_time" content="2021-10-16T23:32:24+08:00">
-<meta property="og:image" content="https://jasperdyb.github.io/hugoBlog/">
-<meta property="og:image:url" content="https://jasperdyb.github.io/hugoBlog/">
+<meta property="og:image" content="https://jasperdyb.github.io/hugoBlog/img/hugoCover.png">
+<meta property="og:image:url" content="https://jasperdyb.github.io/hugoBlog/img/hugoCover.png">
 <link rel=stylesheet href=/hugoBlog/css/custom.css>
 <i class="dark hidden"></i>
 </head>
@@ -84,16 +84,23 @@ hugo server 可以在 http://localhost:1313/ 打開">
 <div class="grid grid-cols-3 gap-4">
 <div class="col-span-3 lg:col-span-2 dark:text-white">
 <div class="bg-white dark:bg-warmgray-900 p-5 my-4">
-<h1 class="title text-4xl">Create hugo blog</h1>
+<h1 class="title text-4xl">建立 Hugo 部落格並配置到 Github Page</h1>
 <hr class=my-2>
 <aside id=meta>
 <div>
 <section>
 <h4 id=date><span class="icon-access_time mr-2"></span>2021/10/16 </h4>
 </section>
+<div id=tags>
+<span class="icon-local_offer mr-1"></span>
+<a href=https://jasperdyb.github.io/hugoBlog/tags/hugo>Hugo</a> |
+<a href=https://jasperdyb.github.io/hugoBlog/tags/github-workflow>Github Workflow</a> |
+<a href=https://jasperdyb.github.io/hugoBlog/tags/github-pages>Github Pages</a> |
+</div>
 </div>
 </aside>
 <hr class=my-2>
+<img class=py-4 src=https://jasperdyb.github.io/hugoBlog/img/hugoCover.png>
 <div class="content mt-5"><h2 id=建立-hugo-專案>建立 Hugo 專案</h2>
 <h3 id=環境>環境</h3>
 <p>使用 Win10 的 <code>Windows Subsystem Linux 2 (WSL2)</code> 中的 <code>Ubuntu-20.04</code> 環境。</p>
@@ -147,17 +154,16 @@ git push --set-upstream origin master
 <p>然後，官方的指南是直接用主分支編譯並發行，不過我參考<a href=https://yurepo.tw/2021/03/%E5%A6%82%E4%BD%95%E5%B0%87hugo%E9%83%A8%E8%90%BD%E6%A0%BC%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A/>這篇文章</a>的做法，建立一個孤兒的分支來紀錄編譯後的資料，這樣主分支開發的時候比較不會有一堆 <code>public</code> 目錄的改動紀錄。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git checkout --orphan gh-pages
 
-git rm -rf .
-
+git rm -rf . 
 git commit -m <span style=color:#e6db74>&#34;init gh-pages&#34;</span>
 
 git push --set-upstream origin gh-pages
 </code></pre></div><p>然後到 Repo 的 到 <code>Settings / Pages</code> 設定 Page 用的分支。</p>
-<p><img src=https://i.imgur.com/VMa6vl1.png alt></p>
+<p><img src=2021-10-18-19-26-01.png alt></p>
 <h3 id=建立-ci-token>建立 CI Token</h3>
 <p>先參考<a href=https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>官方說明</a>建立 Personal Access Token ，到 <code>Settings / Developer settings / Personal access tokens</code> 新增用於 Hugo 建置流程的 Token。</p>
 <p>主要需要的是 <code>workflow</code> 的權限。</p>
-<p><img src=https://i.imgur.com/lnJvTfu.png alt></p>
+<p><img src=2021-10-18-19-26-24.png alt></p>
 <p>接著到 Repo 設定 Token 。</p>
 <p>到 <code>Setting / Secrets</code> 新增 <code>HUGO_DEPLOY_TOKEN</code> 密鑰，密鑰的值就用剛剛建立的 Token。</p>
 <p><img src=https://i.imgur.com/FqNGrgL.png alt></p>
@@ -221,20 +227,21 @@ git push --set-upstream origin gh-pages
           <span style=color:#f92672>PUBLISH_DIR</span>: <span style=color:#ae81ff>./public    </span> <span style=color:#75715e># 發布用的目錄</span>
           <span style=color:#f92672>commit_message</span>: <span style=color:#ae81ff>${{ github.event.head_commit.message }}</span>
 </code></pre></div><p>接著將改動在 master 分支 commit ，接著 push 就會開始建置，等建置成功就能到 Page 的網址看新建成的 Blog 了。</p>
-<p><img src=https://i.imgur.com/h3SRqJq.png alt></p>
+<p><img src=2021-10-18-19-26-47.png alt></p>
 <p>如果在 push 時用的是 Personal Access Token 做認證，要確保該 Token 有 <code>workflow</code> 的權限才能夠 push 。</p>
 </div>
 <aside id=meta>
+<hr class=py-2>
+<div id=categories>
+<span class="icon-folder text-xl mr-1"></span>
+<span class="inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-200 justify-center h-8 px-3 text-blue-500 duration-200 hover:text-black dark:bg-warmgray-800"><a href=https://jasperdyb.github.io/hugoBlog/categories/frontend>Frontend</a></span>
+<span class="inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-200 justify-center h-8 px-3 text-blue-500 duration-200 hover:text-black dark:bg-warmgray-800"><a href=https://jasperdyb.github.io/hugoBlog/categories/static-website>Static Website</a></span>
+</div>
 </aside>
 </div>
 <div class="bg-white dark:bg-warmgray-900 p-5 my-4">
 <div class="grid grid-cols-2">
 <div class=col-span-1>
-<a class="previous lg:text-2xl" href=https://jasperdyb.github.io/hugoBlog/post/my-first-post/>
-<div class="transition-colors duration-300 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
-<span class=icon-keyboard_arrow_left></span> My First Post
-</div>
-</a>
 </div>
 </div>
 </div>
@@ -261,21 +268,34 @@ git push --set-upstream origin gh-pages
 <p class="text-xl text-center text-gray-700 py-3 px-3 dark:text-gray-300">Archives</p>
 </div>
 <div class="bg-white panel mb-3 pb-5 dark:bg-warmgray-900">
+<p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300">Categories</p>
+<a class="text-center block duration-100 py-2 px-4 mx-4 hover:bg-gray-100 text-gray-800 dark:text-gray-200 dark:hover:bg-warmgray-800" href=https://jasperdyb.github.io/hugoBlog//categories/frontend>Frontend</a>
+<a class="text-center block duration-100 py-2 px-4 mx-4 hover:bg-gray-100 text-gray-800 dark:text-gray-200 dark:hover:bg-warmgray-800" href=https://jasperdyb.github.io/hugoBlog//categories/static-website>Static website</a>
+</div>
+<div class="bg-white panel mb-3 dark:bg-warmgray-900">
+<p class="text-xl text-center text-gray-700 py-3 pl-3 dark:text-gray-300">Tags</p>
+<div class="panel-block p-2">
+<a href=/hugoBlog/tags/github-pages>
+<span class="duration-100 inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-100 justify-center h-8 px-3 text-blue-500 hover:text-blue-900 dark:bg-warmgray-800">
+github-pages
+</span></a>
+<a href=/hugoBlog/tags/github-workflow>
+<span class="duration-100 inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-100 justify-center h-8 px-3 text-blue-500 hover:text-blue-900 dark:bg-warmgray-800">
+github-workflow
+</span></a>
+<a href=/hugoBlog/tags/hugo>
+<span class="duration-100 inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-100 justify-center h-8 px-3 text-blue-500 hover:text-blue-900 dark:bg-warmgray-800">
+hugo
+</span></a>
+</div>
+</div>
+<div class="bg-white panel mb-3 pb-5 dark:bg-warmgray-900">
 <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300">Recent Posts</p>
 <div class=mx-6>
-<a href=/hugoBlog/post/my-first-post/>
-<div class="w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-200 dark:hover:bg-warmgray-800">
-<div class=px-2>
-<div class="text-gray-900 font-bold text-xl dark:text-white">My First Post</div>
-<p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
-<time><span class="icon-access_time mr-1"></span>2021/10/10</time>
-</p>
-</div>
-</div>
 <a href=/hugoBlog/post/create-hugo-blog/>
 <div class="w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-200 dark:hover:bg-warmgray-800">
 <div class=px-2>
-<div class="text-gray-900 font-bold text-xl dark:text-white">Create hugo blog</div>
+<div class="text-gray-900 font-bold text-xl dark:text-white">建立 Hugo 部落格並配置到 Github Page</div>
 <p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
 <time><span class="icon-access_time mr-1"></span>2021/10/16</time>
 </p>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github Pages on Jasper Chen</title><link>https://jasperdyb.github.io/hugoBlog/tags/github-pages/</link><description>Recent content in Github Pages on Jasper Chen</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 16 Oct 2021 23:32:24 +0800</lastBuildDate><atom:link href="https://jasperdyb.github.io/hugoBlog/tags/github-pages/index.xml" rel="self" type="application/rss+xml"/><item><title>建立 Hugo 部落格並配置到 Github Page</title><link>https://jasperdyb.github.io/hugoBlog/post/create-hugo-blog/</link><pubDate>Sat, 16 Oct 2021 23:32:24 +0800</pubDate><guid>https://jasperdyb.github.io/hugoBlog/post/create-hugo-blog/</guid><description>建立 Hugo 專案 環境 使用 Win10 的 Windows Subsystem Linux 2 (WSL2) 中的 Ubuntu-20.04 環境。
+在 WSL 安裝 在 Ubuntu 可以選擇用 apt 安裝，可是官方目前(2021/10/10) 表示 apt 上的套件還有些問題，會落後幾個版次。
+所以改用 Brew 進行安裝
+brew install hugo 建立專案 hugo new site quickstart cd quickstart git init 應用模板 這邊使用 Blonde 模板，這個模板有用到一些 npm 套件所以要記得安裝。
+git submodule add https://github.com/opera7133/Blonde.git themes/Blonde git submodule update --remote --merge npm install --prefix themes/Blonde 再來直接從模板的範例中複製 config.toml 到根目錄。
+cp themes/Blonde/exampleSite/config.toml config.toml 啟動伺服器 啟動開發用的伺服器。
+hugo server 可以在 http://localhost:1313/ 打開</description></item></channel></rss>
