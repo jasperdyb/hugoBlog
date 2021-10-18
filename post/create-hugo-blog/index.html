@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href=/hugoBlog/favicon/favicon.ico>
 <meta name=theme-color content="#ffffff">
 <meta property="og:title" content="Jasper Chen | 建立 Hugo 部落格並配置到 Github Page">
-<link rel=stylesheet href="https://jasperdyb.github.io/hugoBlog/css/styles.min.ab597d98e4a4112b7c80c65934598d57c8dd6af80f3d3840db530a6eaedaea2f.css">
+<link rel=stylesheet href="https://jasperdyb.github.io/hugoBlog/css/styles.min.2ea4e3f20b0f0c799ca98c2b90385d7bcaad707d69d3643a5df1df57cae3b14f.css">
 <link href=/hugoBlog/css/blonde.min.css rel=stylesheet type=text/css media=print onload="this.media='all'">
 <meta name=description content="建立 Hugo 專案 環境 使用 Win10 的 Windows Subsystem Linux 2 (WSL2) 中的 Ubuntu-20.04 環境。
 在 WSL 安裝 在 Ubuntu 可以選擇用 apt 安裝，可是官方目前(2021/10/10) 表示 apt 上的套件還有些問題，會落後幾個版次。
@@ -101,20 +101,20 @@ hugo server 可以在 http://localhost:1313/ 打開">
 </aside>
 <hr class=my-2>
 <img class=py-4 src=https://jasperdyb.github.io/hugoBlog/img/hugoCover.png>
-<div class="content mt-5"><h2 id=建立-hugo-專案>建立 Hugo 專案</h2>
-<h3 id=環境>環境</h3>
+<div class="content mt-5"><h1 id=建立-hugo-專案>建立 Hugo 專案</h1>
+<h2 id=環境>環境</h2>
 <p>使用 Win10 的 <code>Windows Subsystem Linux 2 (WSL2)</code> 中的 <code>Ubuntu-20.04</code> 環境。</p>
-<h3 id=在-wsl-安裝>在 WSL 安裝</h3>
+<h2 id=在-wsl-安裝>在 WSL 安裝</h2>
 <p>在 Ubuntu 可以選擇用 apt 安裝，可是官方目前(2021/10/10) 表示 apt 上的套件還有些問題，<a href=https://gohugo.io/getting-started/installing#debian-and-ubuntu>會落後幾個版次</a>。</p>
 <p>所以改用 Brew 進行安裝</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>brew install hugo
-</code></pre></div><h3 id=建立專案>建立專案</h3>
+</code></pre></div><h2 id=建立專案>建立專案</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo new site quickstart
 
 cd quickstart
 
 git init
-</code></pre></div><h3 id=應用模板>應用模板</h3>
+</code></pre></div><h2 id=應用模板>應用模板</h2>
 <p>這邊使用 <a href=https://github.com/opera7133/Blonde>Blonde</a> 模板，這個模板有用到一些 npm 套件所以要記得安裝。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git submodule add https://github.com/opera7133/Blonde.git themes/Blonde
 
@@ -124,11 +124,11 @@ npm install --prefix themes/Blonde
 
 </code></pre></div><p>再來直接從模板的範例中複製 <code>config.toml</code> 到根目錄。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cp themes/Blonde/exampleSite/config.toml config.toml
-</code></pre></div><h3 id=啟動伺服器>啟動伺服器</h3>
+</code></pre></div><h2 id=啟動伺服器>啟動伺服器</h2>
 <p>啟動開發用的伺服器。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo server
 </code></pre></div><p>可以在 http://localhost:1313/ 打開</p>
-<h3 id=新增文章>新增文章</h3>
+<h2 id=新增文章>新增文章</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo new posts/my-first-post.md
 </code></pre></div><p>預設文件會產生在 <code>content</code> 目錄下，所以上面的文章會在 <code>content/posts/</code> 目錄下。</p>
 <p>另外文章產生時預設是草稿狀態，要發布才會被編譯。</p>
@@ -137,11 +137,11 @@ title: &quot;My First Post&quot;
 date: 2021-10-10T23:53:49+08:00
 draft: true  #要改為 false 後再編譯才會出現
 ---
-</code></pre><h3 id=編譯靜態網頁>編譯靜態網頁</h3>
+</code></pre><h2 id=編譯靜態網頁>編譯靜態網頁</h2>
 <p>編譯的指令很簡單。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>hugo
 </code></pre></div><p>編譯好的資料放在 <code>/public</code> 底下，原本沒有 <code>/public</code> 的話會自動產生。</p>
-<h2 id=發布到-github-page>發布到 Github Page</h2>
+<h1 id=發布到-github-page>發布到 Github Page</h1>
 <p>首先在 Github 建立好 Repo。</p>
 <p>接著將專案的 remote 指定為剛剛建立的 Repo</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git remote add origin &lt;your-git-repo-url&gt;
@@ -150,7 +150,7 @@ git add .
 git commit -m init
 
 git push --set-upstream origin master
-</code></pre></div><h3 id=建立發布用分支>建立發布用分支</h3>
+</code></pre></div><h2 id=建立發布用分支>建立發布用分支</h2>
 <p>然後，官方的指南是直接用主分支編譯並發行，不過我參考<a href=https://yurepo.tw/2021/03/%E5%A6%82%E4%BD%95%E5%B0%87hugo%E9%83%A8%E8%90%BD%E6%A0%BC%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A/>這篇文章</a>的做法，建立一個孤兒的分支來紀錄編譯後的資料，這樣主分支開發的時候比較不會有一堆 <code>public</code> 目錄的改動紀錄。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git checkout --orphan gh-pages
 
@@ -160,14 +160,14 @@ git commit -m <span style=color:#e6db74>&#34;init gh-pages&#34;</span>
 git push --set-upstream origin gh-pages
 </code></pre></div><p>然後到 Repo 的 到 <code>Settings / Pages</code> 設定 Page 用的分支。</p>
 <p><img src=2021-10-18-19-26-01.png alt></p>
-<h3 id=建立-ci-token>建立 CI Token</h3>
+<h2 id=建立-ci-token>建立 CI Token</h2>
 <p>先參考<a href=https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>官方說明</a>建立 Personal Access Token ，到 <code>Settings / Developer settings / Personal access tokens</code> 新增用於 Hugo 建置流程的 Token。</p>
 <p>主要需要的是 <code>workflow</code> 的權限。</p>
 <p><img src=2021-10-18-19-26-24.png alt></p>
 <p>接著到 Repo 設定 Token 。</p>
 <p>到 <code>Setting / Secrets</code> 新增 <code>HUGO_DEPLOY_TOKEN</code> 密鑰，密鑰的值就用剛剛建立的 Token。</p>
 <p><img src=https://i.imgur.com/FqNGrgL.png alt></p>
-<h3 id=設定-staging-config>設定 staging config</h3>
+<h2 id=設定-staging-config>設定 staging config</h2>
 <p>目前只有一個 <code>conig.toml</code> 檔案在根目錄，如果要建立不同環境下的設定，要改用 config 目錄區分。</p>
 <p>將原本在根目錄的 <code>conig.toml</code> 搬到 <code>config\_default\config.toml</code></p>
 <pre tabindex=0><code>├── config
@@ -178,7 +178,7 @@ git push --set-upstream origin gh-pages
 </code></pre><p><code>config\production\config.toml</code> 主要設定 <code>baseURL</code> 為 Page 的網址，這樣網站才能正確參照到 css 檔案的位址。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#ae81ff>baseURL = &lt;Your_hugo_blog_url&gt;</span>
 </code></pre></div><p>編譯時會先讀取 <code>_default\config.toml</code> 再 shallow merge 指定的環境 config 檔案，所以 <code>production\config.toml</code> 只要寫要改變的參數就好。</p>
-<h3 id=建立-ci-腳本>建立 CI 腳本</h3>
+<h2 id=建立-ci-腳本>建立 CI 腳本</h2>
 <p>在本地的目錄新增 <code>.github/workflows/gh-pages.yml</code> 文件，內容如下。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>name</span>: <span style=color:#ae81ff>Publish Blog</span>
 
@@ -209,10 +209,10 @@ git push --set-upstream origin gh-pages
           <span style=color:#f92672>node-version</span>: <span style=color:#e6db74>&#39;14&#39;</span>
 
       - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup PostCSS</span>
-        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>npm install -g postcss-cli &amp;&amp; npm install -g autoprefixer &amp;&amp; npm install -g postcss</span>
+        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>npm install -g postcss-cli autoprefixer postcss</span>
 
       - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Theme Dependency</span>
-        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>npm install --prefix themes/Blonde --production=false </span>
+        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>npm install --prefix themes/Blonde </span>
 
 
         <span style=color:#75715e># 用 Hugo 編譯靜態檔案，使用 production config</span>
@@ -243,12 +243,17 @@ git push --set-upstream origin gh-pages
 <div class="grid grid-cols-2">
 <div class=col-span-1>
 </div>
+<a class="next lg:text-2xl" href=https://jasperdyb.github.io/hugoBlog/post/hugo-add-disqus/>
+<div class="transition-colors duration-300 col-span-1 border border-gray-600 hover:border-black h-auto m-3 text-center py-3 lg:py-1">
+在 Hugo 部落格加裝 Disqus 討論串 <span class=icon-keyboard_arrow_right></span>
+</div>
+</a>
 </div>
 </div>
 <div class="bg-white dark:bg-warmgray-900 p-5 my-4">
 <div class=mb-3>
 <div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//jasper-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//jaspers-tech-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
 <noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
 <a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
 </div>
@@ -275,6 +280,10 @@ git push --set-upstream origin gh-pages
 <div class="bg-white panel mb-3 dark:bg-warmgray-900">
 <p class="text-xl text-center text-gray-700 py-3 pl-3 dark:text-gray-300">Tags</p>
 <div class="panel-block p-2">
+<a href=/hugoBlog/tags/disqus>
+<span class="duration-100 inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-100 justify-center h-8 px-3 text-blue-500 hover:text-blue-900 dark:bg-warmgray-800">
+disqus
+</span></a>
 <a href=/hugoBlog/tags/github-pages>
 <span class="duration-100 inline-flex py-2 leading-4 mr-2 mb-2 content-center bg-gray-100 justify-center h-8 px-3 text-blue-500 hover:text-blue-900 dark:bg-warmgray-800">
 github-pages
@@ -292,6 +301,15 @@ hugo
 <div class="bg-white panel mb-3 pb-5 dark:bg-warmgray-900">
 <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300">Recent Posts</p>
 <div class=mx-6>
+<a href=/hugoBlog/post/hugo-add-disqus/>
+<div class="w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-200 dark:hover:bg-warmgray-800">
+<div class=px-2>
+<div class="text-gray-900 font-bold text-xl dark:text-white">在 Hugo 部落格加裝 Disqus 討論串</div>
+<p class="text-sm text-gray-600 flex items-center pb-1 dark:text-gray-400">
+<time><span class="icon-access_time mr-1"></span>2021/10/18</time>
+</p>
+</div>
+</div>
 <a href=/hugoBlog/post/create-hugo-blog/>
 <div class="w-full block mt-3 bg-white hover:bg-gray-100 duration-200 dark:bg-warmgray-900 dark:text-gray-200 dark:hover:bg-warmgray-800">
 <div class=px-2>
