@@ -14,7 +14,7 @@ title = "Jasper Chen"
 #googleAnalytics = "G-1234567890"
 
 # Disqus Comment System
-disqusShortname = ""
+disqusShortname = "jasper-blog"
 
 [params]
 # Base color of the website.
@@ -50,7 +50,7 @@ noimage = true
 thumbnail_height = "h-44"
 
 # https://tailwindcss.com/docs/width
-thumbnail_width = "w-auto"
+thumbnail_width = "600"
 
 # Number of characters in description
 description = "130"
