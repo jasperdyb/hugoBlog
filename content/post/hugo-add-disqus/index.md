@@ -13,30 +13,31 @@ categories : [
     "Static Website",
 ]
 series : ["Hugo Guide"]
+archives : ["Hugo Guide"]
 ---
 # 建立 Disqus 專案
 
 在 Disqus 登入後到個人的 Settings 
 
-![](2021-10-18-23-07-03.png)
+![](2021-10-19-23-21-35.png)
 
 再到右上選單選 Add Disqus To Site
  
- ![](2021-10-18-23-11-26.png)
+ 
+![](2021-10-19-23-22-32.png)
 
 接著是一長串的介紹，直接捲到最底下選擇 Get Started。
 
 選擇 I want to install Disqus on my site 。
 
- ![](2021-10-18-23-13-46.png )
+![](2021-10-19-23-23-58.png)
+
 
 接下來的表單設定網站的名稱，類型跟語言，之後可以再改，都輸入後選擇 Create Site。
 
 專案建好後選擇設定，找到 Shortname 的值並記下來。
 
-![](2021-10-18-23-22-42.png)
-
-![](2021-10-18-23-23-59.png)
+![](2021-10-19-23-25-05.png)
 
 這樣 Disqus 就設定好了，接著回到 Hugo 加入 Disqus 的元件。
 
@@ -78,9 +79,9 @@ Hugo 讀取環境變數的方法是當環境變數的名稱以 `HUGO_` 開頭的
 ```yaml
 # 用 Hugo 編譯靜態檔案，使用 production config
 - name: Build
-run: hugo --minify --environment production
-env:          
-    HUGO_disqusShortname: ${{ secrets.DISQUS_SHORT_NAME }}
+  run: hugo --minify --environment production
+  env:          
+      HUGO_disqusShortname: ${{ secrets.DISQUS_SHORT_NAME }}
 ```
 
 這樣當推上新的 main 分支並建置後文章底下就會出現 Disqus 面板了。

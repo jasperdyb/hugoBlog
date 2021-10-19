@@ -13,6 +13,7 @@ categories : [
     "Static Website",
 ]
 series : ["Hugo Guide"]
+archives : ["Hugo Guide"]
 ---
 
 # 建立 Hugo 專案
@@ -130,22 +131,24 @@ git push --set-upstream origin gh-pages
 ```
 
 然後到 Repo 的 到 `Settings / Pages` 設定 Page 用的分支。
- 
-![](2021-10-18-19-26-01.png)
+   
+
+![](2021-10-19-22-57-46.png)
 
 ## 建立 CI Token
 
 先參考[官方說明](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)建立 Personal Access Token ，到 `Settings / Developer settings / Personal access tokens` 新增用於 Hugo 建置流程的 Token。
 
 主要需要的是 `workflow` 的權限。
- 
-![](2021-10-18-19-26-24.png)
+
+![](2021-10-19-22-59-07.png)
+
 
 接著到 Repo 設定 Token 。
 
 到 `Setting / Secrets` 新增 `HUGO_DEPLOY_TOKEN` 密鑰，密鑰的值就用剛剛建立的 Token。
-
-![](https://i.imgur.com/FqNGrgL.png)
+ 
+![](2021-10-19-23-00-23.png)
 
 
 ## 設定 staging config
@@ -224,8 +227,8 @@ jobs:
 ```
 
 接著將改動在 master 分支 commit ，接著 push 就會開始建置，等建置成功就能到 Page 的網址看新建成的 Blog 了。
- 
-![](2021-10-18-19-26-47.png)
+
+![](2021-10-19-23-01-29.png)
 
 
 如果在 push 時用的是 Personal Access Token 做認證，要確保該 Token 有 `workflow` 的權限才能夠 push 。
