@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href=/hugoBlog/favicon/favicon.ico>
 <meta name=theme-color content="#ffffff">
 <meta property="og:title" content="Jasper Chen | 在 Hugo 部落格加裝 Disqus 討論串">
-<link rel=stylesheet href="https://jasperdyb.github.io/hugoBlog/css/styles.min.2ea4e3f20b0f0c799ca98c2b90385d7bcaad707d69d3643a5df1df57cae3b14f.css">
+<link rel=stylesheet href="https://jasperdyb.github.io/hugoBlog/css/styles.min.258dcf3828acb0c9aa0a48a52e79142a44ee20d3144238529c065f93de56f15c.css">
 <link href=/hugoBlog/css/blonde.min.css rel=stylesheet type=text/css media=print onload="this.media='all'">
 <meta name=description content="建立 Disqus 專案 在 Disqus 登入後到個人的 Settings
 再到右上選單選 Add Disqus To Site
@@ -112,38 +112,49 @@ disqusShortname = &#34;&#34; 不過設定後在 Local 的 Dev Server 建成的�
 <img class=py-4 src=https://jasperdyb.github.io/hugoBlog/img/hugoCover.png>
 <div class="content mt-5"><h1 id=建立-disqus-專案>建立 Disqus 專案</h1>
 <p>在 Disqus 登入後到個人的 Settings</p>
-<p><img src=2021-10-18-23-07-03.png alt></p>
+<p><p class=px-8>
+<img class="object-scale-down max-h-45 w-full" src=2021-10-19-23-21-35.png alt>
+</p></p>
 <p>再到右上選單選 Add Disqus To Site</p>
-<p><img src=2021-10-18-23-11-26.png alt></p>
+<p><p class=px-8>
+<img class="object-scale-down max-h-45 w-full" src=2021-10-19-23-22-32.png alt>
+</p></p>
 <p>接著是一長串的介紹，直接捲到最底下選擇 Get Started。</p>
 <p>選擇 I want to install Disqus on my site 。</p>
-<p><img src=2021-10-18-23-13-46.png alt></p>
+<p><p class=px-8>
+<img class="object-scale-down max-h-45 w-full" src=2021-10-19-23-23-58.png alt>
+</p></p>
 <p>接下來的表單設定網站的名稱，類型跟語言，之後可以再改，都輸入後選擇 Create Site。</p>
 <p>專案建好後選擇設定，找到 Shortname 的值並記下來。</p>
-<p><img src=2021-10-18-23-22-42.png alt></p>
-<p><img src=2021-10-18-23-23-59.png alt></p>
+<p><p class=px-8>
+<img class="object-scale-down max-h-45 w-full" src=2021-10-19-23-25-05.png alt>
+</p></p>
 <p>這樣 Disqus 就設定好了，接著回到 Hugo 加入 Disqus 的元件。</p>
 <h1 id=hugo-加入-disqus-元件>Hugo 加入 Disqus 元件</h1>
 <p>Hugo 本身已經有預設的 Disqus 套件，大部分部落格類別的主題會已經有加上了。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>{{ <span style=color:#a6e22e>template</span> <span style=color:#e6db74>&#34;_internal/disqus.html&#34;</span> . }}
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>{{ template <span style=color:#ed9d13>&#34;_internal/disqus.html&#34;</span> . }}
 </code></pre></div><p>如果是用這個組件的話接下來只要在 config 中設定 <code>disqusShortname</code> 參數即可，用的就是剛剛在 Disqus 建立專案後取得的 <code>Shortname</code>。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=color:#a6e22e>disqusShortname</span> = <span style=color:#e6db74>&#34;&#34;</span>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml>disqusShortname = <span style=color:#ed9d13>&#34;&#34;</span>
 </code></pre></div><p>不過設定後在 Local 的 Dev Server 建成的網站上也沒辦法看到 Disqus 的畫面，因為預設在 Local 環境是不會應用的，要等上傳到 Github Page 才看的到。</p>
 <pre tabindex=0><code>Disqus comments not available by default when the website is previewed locally.
 comments powered by Disqus
 </code></pre><h1 id=設定-github-環境變數>設定 Github 環境變數</h1>
 <p>Disqus 的 <code>Shortname</code> 是個私鑰，所以不應該直接寫在 commit 當中，這時候要運用 Github 的 Secret 設定跟 Github Action 動態設定環境變數的功能。</p>
 <p>首先在部落格的 Repo 中建立對應 Disqus Shortname 的 Secret，路徑: Settings > Secrets，這邊建的名稱叫做 <code>DISQUS_SHORT_NAME</code>。</p>
-<p><img src=2021-10-18-23-42-29.png alt></p>
+<p><p class=px-8>
+<img class="object-scale-down max-h-45 w-full" src=2021-10-18-23-42-29.png alt>
+</p></p>
 <p>接著來修改一下 CI 文件的流程，在進行 Hugo Build 的時候指定 <code>disqusShortname</code> 的值為剛剛建立的 <code>DISQUS_SHORT_NAME</code>。</p>
 <p>Hugo 讀取環境變數的方法是當環境變數的名稱以 <code>HUGO_</code> 開頭的話，就會將其後的名稱作為 config 的名稱並帶入其值然後建置，所以設定環境變數 <code>HUGO_disqusShortname</code> 的話就能修改 config 中 <code>disqusShortname</code>的值。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#75715e># 用 Hugo 編譯靜態檔案，使用 production config</span>
-- <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build</span>
-<span style=color:#f92672>run</span>: <span style=color:#ae81ff>hugo --minify --environment production</span>
-<span style=color:#f92672>env</span>:          
-    <span style=color:#f92672>HUGO_disqusShortname</span>: <span style=color:#ae81ff>${{ secrets.DISQUS_SHORT_NAME }}</span>
-</code></pre></div><p>這樣當推上新的 main 分支並建置後文章底下就會出現 Disqus 面板了。</p>
-<p><img src=2021-10-18-23-50-00.png alt></p>
+<div class=highlight><pre tabindex=0 style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#999;font-style:italic># 用 Hugo 編譯靜態檔案，使用 production config</span><span style=color:#666>
+</span><span style=color:#666></span>- <span style=color:#6ab825;font-weight:700>name</span>:<span style=color:#666> </span>Build<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>run</span>:<span style=color:#666> </span>hugo --minify --environment production<span style=color:#666>
+</span><span style=color:#666>  </span><span style=color:#6ab825;font-weight:700>env</span>:<span style=color:#666>          
+</span><span style=color:#666>      </span><span style=color:#6ab825;font-weight:700>HUGO_disqusShortname</span>:<span style=color:#666> </span>${{ secrets.DISQUS_SHORT_NAME }}<span style=color:#666>
+</span></code></pre></div><p>這樣當推上新的 main 分支並建置後文章底下就會出現 Disqus 面板了。</p>
+<p><p class=px-8>
+<img class="object-scale-down max-h-45 w-full" src=2021-10-18-23-50-00.png alt>
+</p></p>
 </div>
 <aside id=meta>
 <hr class=py-2>
@@ -186,6 +197,7 @@ comments powered by Disqus
 </div>
 <div class="bg-white panel mb-3 pb-5 dark:bg-warmgray-900">
 <p class="text-xl text-center text-gray-700 py-3 px-3 dark:text-gray-300">Archives</p>
+<a class="text-center block duration-100 py-2 px-4 mx-4 hover:bg-gray-100 text-gray-800 dark:text-gray-200 dark:hover:bg-warmgray-800" href=https://jasperdyb.github.io/hugoBlog//archives/hugo-guide>hugo-guide (2)</a>
 </div>
 <div class="bg-white panel mb-3 pb-5 dark:bg-warmgray-900">
 <p class="text-xl text-center text-gray-700 py-5 dark:text-gray-300">Categories</p>
